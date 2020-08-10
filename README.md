@@ -1,3 +1,11 @@
+#### micro service sample
+
+openapiを使ってマイクロサービスを構築するためのサンプルapp
+
+openapi + openapi generator + express
+
+expressのサーバー構築と、そこへのアクセス用のsdkをサクッとローカルで試せる
+
 #### sdkとしてpublishして使うテスト
 
 name: test
