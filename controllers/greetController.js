@@ -1,6 +1,10 @@
 exports.getGreeting = function getGreeting(context) {
-
   var MyApi = require('my_api');
+  // const { Models } = require('../index')
+  // Models.User.find({name: "Silence"}, function(err, result) {
+  //   if (err) throw err;
+  //   console.log(result); 
+  // });
 
   var api = new MyApi.DefaultApi()
   const client = MyApi.ApiClient

@@ -6,6 +6,14 @@ openapi + openapi generator + express
 
 expressのサーバー構築と、そこへのアクセス用のsdkをサクッとローカルで試せる
 
+#### 構築
+
+```
+brew tap mongodb/brew
+brew services start mongodb-community
+brew services start mongodb-community
+```
+
 #### sdkとしてpublishして使うテスト
 
 name: test

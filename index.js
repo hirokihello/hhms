@@ -4,14 +4,11 @@ const http = require('http');
 const path = require('path');
 
 async function createServer() {
-  // See https://github.com/exegesis-js/exegesis/blob/master/docs/Options.md
   const options = {
     controllers: path.resolve(__dirname, './controllers'),
     allowMissingControllers: false,
   };
 
-  // This creates an exegesis middleware, which can be used with express,
-  // connect, or even just by itself.
   const exegesisMiddleware = await exegesisExpress.middleware(
     path.resolve(__dirname, './openapi.yml'),
     options
@@ -37,6 +34,36 @@ async function createServer() {
   return server;
 }
 
+const mongoose = require('mongoose');
+
+// 一般的には, `mongodb://localhost/test` の指定になります
+mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true});
+
+const db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'mongo 接続エラー ctrl + c:'));
+db.once('open', () =>  {
+  console.log('DB接続中... You can cancel from ctrl + c')
+});
+
+// modelの型の定義作成
+const userSchema = mongoose.Schema({
+  name: String
+});
+
+// migration的なsomething
+const User = mongoose.model('User', userSchema);
+
+User.find({name: "Silence"}, function(err, result) {
+  if (err) throw err;
+  if (result) return
+
+  const silence = new User({ name: 'Silence' });
+  silence.save(function (err) {
+    if (err) return handleError(err);
+  });
+});
+
 createServer()
   .then(server => {
     server.listen(3000);
@@ -47,3 +74,7 @@ createServer()
     console.error(err.stack);
     process.exit(1);
   });
+
+exports.Models = {
+  User
+}
