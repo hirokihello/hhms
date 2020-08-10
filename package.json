@@ -1,0 +1,27 @@
+{
+  "name": "hhms",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/hirokihello/hhms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hirokihello/hhms/issues"
+  },
+  "homepage": "https://github.com/hirokihello/hhms#readme",
+  "dependencies": {
+    "@openapitools/openapi-generator-cli": "^1.0.15-4.3.1",
+    "exegesis-express": "^2.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.28",
+    "my_api": "^1.0.3"
+  }
+}
