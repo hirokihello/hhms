@@ -1,4 +1,4 @@
-#### micro service sample
+#### hirokihello micro service sample (hhms)
 
 openapiを使ってマイクロサービスを構築するためのサンプルapp
 
